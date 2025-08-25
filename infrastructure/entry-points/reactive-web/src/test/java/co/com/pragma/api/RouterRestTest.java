@@ -23,10 +23,7 @@ class RouterRestTest {
                 .exchange()
                 .expectStatus().isOk()
                 .expectBody(String.class)
-                .value(userResponse -> {
-                            Assertions.assertThat(userResponse).isEmpty();
-                        }
-                );
+                .value(userResponse -> Assertions.assertThat(userResponse).isEmpty());
     }
 
     @Test
@@ -37,10 +34,7 @@ class RouterRestTest {
                 .exchange()
                 .expectStatus().isOk()
                 .expectBody(String.class)
-                .value(userResponse -> {
-                            Assertions.assertThat(userResponse).isEmpty();
-                        }
-                );
+                .value(userResponse -> Assertions.assertThat(userResponse).isEmpty());
     }
 
     @Test
@@ -52,9 +46,6 @@ class RouterRestTest {
                 .exchange()
                 .expectStatus().isOk()
                 .expectBody(String.class)
-                .value(userResponse -> {
-                            Assertions.assertThat(userResponse).isEmpty();
-                        }
-                );
+                .value(userResponse -> Assertions.assertThat(userResponse).isEmpty());
     }
 }
