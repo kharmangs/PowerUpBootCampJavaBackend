@@ -22,3 +22,17 @@ management:
         enabled: true
 cors:
   allowed-origins: "http://localhost:4200,http://localhost:8080"
+
+routes:
+  paths:
+    users: "/api/v1/users"
+    userByEmail: "/api/v1/users/{email}"
+
+adapters:
+  r2dbc:
+    host: localhost
+    port: 5432
+    database: pragma
+    schema: public
+    username: db_user
+    password: db_pass
