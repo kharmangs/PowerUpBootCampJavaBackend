@@ -1,4 +1,4 @@
-package co.com.pragma.api;
+package co.com.bootcamp.api;
 
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
