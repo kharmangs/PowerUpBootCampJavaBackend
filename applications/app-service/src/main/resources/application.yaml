@@ -1,5 +1,7 @@
 server:
   port: 8080
+  error:
+    include-message: always
 spring:
   application:
     name: "AuthenticatorApp"
@@ -33,6 +35,6 @@ adapters:
     host: localhost
     port: 5432
     database: pragma
-    schema: public
+    schema: authenticator
     username: db_user
     password: db_pass

@@ -4,6 +4,8 @@ import lombok.*;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.relational.core.mapping.Table;
 
+import java.math.BigDecimal;
+import java.time.LocalDate;
 import java.util.UUID;
 
 @Table("users")
@@ -19,7 +21,8 @@ public class UserEntity {
     private String surnames;
     private String identification;
     private String email;
-    private String cellphone;
-    private String salary;
-    private String role;
+    private String phone;
+    private BigDecimal salary;
+    private int roleId;
+    private LocalDate birthdate;
 }

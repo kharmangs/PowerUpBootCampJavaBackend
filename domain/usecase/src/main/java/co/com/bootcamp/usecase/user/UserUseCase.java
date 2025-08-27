@@ -10,7 +10,17 @@ public class UserUseCase {
 
     private final UserRepository userRepository;
 
-    public Mono<User> getUserByEmail(String email) {
-        return userRepository.getUserByEmail(email);
+    public Mono<User> createUser(User user) {
+        return userExistsByEmail(user.getEmail())
+                .flatMap(exists -> {
+                    if (Boolean.TRUE.equals(exists)) {
+                        return Mono.error(new IllegalArgumentException("User with email " + user.getEmail() + " already exists"));
+                    }
+                    return userRepository.createUser(user);
+                });
+    }
+
+    private Mono<Boolean> userExistsByEmail(String email) {
+        return userRepository.userExistsByEmail(email);
     }
 }

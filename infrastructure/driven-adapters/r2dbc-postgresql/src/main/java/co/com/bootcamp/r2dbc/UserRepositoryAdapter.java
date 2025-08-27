@@ -11,20 +11,19 @@ import reactor.core.publisher.Mono;
 
 @Slf4j
 @Repository
-public class UserRepositoryAdapter extends ReactiveAdapterOperations<
-        User,
-        UserEntity,
-        String,
-        UserReactiveRepository
-        > implements UserRepository {
+public class UserRepositoryAdapter extends ReactiveAdapterOperations<User, UserEntity, String, UserReactiveRepository> implements UserRepository {
+
     public UserRepositoryAdapter(UserReactiveRepository repository, ObjectMapper mapper) {
         super(repository, mapper, d -> mapper.map(d, User.class));
     }
 
     @Override
-    public Mono<User> getUserByEmail(String email) {
-        return repository.findUserByEmail(email)
-                .doOnNext(userEntity -> log.info("UserEntity: {}", userEntity))
-                .map(entity -> mapper.map(entity, User.class));
+    public Mono<User> createUser(User user) {
+        return super.save(user);
+    }
+
+    @Override
+    public Mono<Boolean> userExistsByEmail(String email) {
+        return repository.existsByEmail(email);
     }
 }

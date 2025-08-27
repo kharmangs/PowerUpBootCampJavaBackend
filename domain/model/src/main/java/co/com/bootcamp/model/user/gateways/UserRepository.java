@@ -4,6 +4,8 @@ import co.com.bootcamp.model.user.User;
 import reactor.core.publisher.Mono;
 
 public interface UserRepository {
+
+    Mono<User> createUser(User user);
     
-    Mono<User> getUserByEmail(String email);
+    Mono<Boolean> userExistsByEmail(String email);
 }

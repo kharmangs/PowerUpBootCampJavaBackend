@@ -15,6 +15,7 @@ public class PostgreSQLConnectionPool {
     public static final int INITIAL_SIZE = 12;
     public static final int MAX_SIZE = 15;
     public static final int MAX_IDLE_TIME = 30;
+    public static final int MAX_TIMEOUT = 3;
 
     @Bean
     public ConnectionPool getConnectionConfig(PostgresqlConnectionProperties properties) {
@@ -33,6 +34,7 @@ public class PostgreSQLConnectionPool {
                 .initialSize(INITIAL_SIZE)
                 .maxSize(MAX_SIZE)
                 .maxIdleTime(Duration.ofMinutes(MAX_IDLE_TIME))
+                .maxCreateConnectionTime(Duration.ofSeconds(MAX_TIMEOUT))
                 .validationQuery("SELECT 1")
                 .build();
 
