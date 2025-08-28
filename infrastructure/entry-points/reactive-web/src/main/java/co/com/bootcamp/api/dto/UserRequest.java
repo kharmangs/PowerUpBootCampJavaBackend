@@ -27,7 +27,7 @@ public record UserRequest(
         }
 
         if (salary.compareTo(BigDecimal.ZERO) <= 0 || salary.compareTo(SALARY_LIMIT) > 0) {
-            throw new IllegalArgumentException("The salary must be greater than 0 and less than or equal to $15.000.000");
+            throw new IllegalArgumentException("The salary is not within the allowed range");
         }
 
         if (!EMAIL_PATTERN.matcher(email).matches()) {
