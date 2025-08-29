@@ -1,5 +1,6 @@
 package co.com.bootcamp.api.exception;
 
+import org.springframework.aot.generate.Generated;
 import org.springframework.boot.autoconfigure.web.WebProperties.Resources;
 import org.springframework.boot.autoconfigure.web.reactive.error.AbstractErrorWebExceptionHandler;
 import org.springframework.boot.web.error.ErrorAttributeOptions;
@@ -15,6 +16,7 @@ import reactor.core.publisher.Mono;
 
 import java.util.Map;
 
+@Generated
 @Component
 public class GlobalExceptionHandler extends AbstractErrorWebExceptionHandler {
 

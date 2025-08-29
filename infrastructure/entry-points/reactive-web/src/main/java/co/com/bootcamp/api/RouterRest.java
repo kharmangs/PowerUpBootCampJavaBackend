@@ -25,7 +25,6 @@ public class RouterRest {
 
     private final UserPath userPath;
 
-    @Bean
     @RouterOperations({
             @RouterOperation(
                     path = "/api/v1/users",
@@ -48,6 +47,7 @@ public class RouterRest {
                     )
             )
     })
+    @Bean
     public RouterFunction<ServerResponse> routerFunction(Handler handler) {
         return route(POST(userPath.getUsers()), handler::createUser);
     }

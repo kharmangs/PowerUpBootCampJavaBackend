@@ -28,7 +28,7 @@ public class Handler {
     public Mono<ServerResponse> createUser(ServerRequest request) {
         return request.bodyToMono(UserRequest.class)
                 .doOnNext(userRequest -> log.info(">>> CREATE USER. NEW CALL >>> {}", userRequest))
-                .onErrorResume(e -> Mono.error(new ApiException(HttpStatus.BAD_REQUEST, e.getCause().getMessage())))
+                .onErrorResume(e -> Mono.error(new ApiException(HttpStatus.BAD_REQUEST, e.getMessage())))
                 .flatMap(userRequest -> userUseCase.createUser(userMapper.toModel(userRequest))
                         .onErrorResume(e -> Mono.error(new ApiException(HttpStatus.CONFLICT, e.getMessage())))
                         .flatMap(newUser -> ServerResponse.created(URI.create("/users/" + newUser.getId()))

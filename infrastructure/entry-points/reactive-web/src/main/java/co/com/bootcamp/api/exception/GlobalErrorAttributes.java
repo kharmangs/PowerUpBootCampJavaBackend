@@ -1,6 +1,7 @@
 package co.com.bootcamp.api.exception;
 
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.aot.generate.Generated;
 import org.springframework.boot.web.error.ErrorAttributeOptions;
 import org.springframework.boot.web.reactive.error.DefaultErrorAttributes;
 import org.springframework.stereotype.Component;
@@ -11,6 +12,7 @@ import java.util.LinkedHashMap;
 import java.util.Map;
 
 @Slf4j
+@Generated
 @Component
 public class GlobalErrorAttributes extends DefaultErrorAttributes {
 

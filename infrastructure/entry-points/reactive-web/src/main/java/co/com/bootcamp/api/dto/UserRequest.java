@@ -1,11 +1,13 @@
 package co.com.bootcamp.api.dto;
 
+import lombok.Builder;
 import lombok.NonNull;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.util.regex.Pattern;
 
+@Builder
 public record UserRequest(
         String id,
         @NonNull String names,
